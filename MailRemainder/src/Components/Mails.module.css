@@ -1,0 +1,110 @@
+.container {
+    --background-color:rgb(232, 232, 232);
+    --border-radius:12px;
+
+    width: 65%;
+    margin: 20px auto;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.buttonGroup{
+    background-color: var(--background-color);
+    border-radius: 20px;
+    width: fit-content;
+}
+
+.headerLeft{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sentButton , .upcomingButton {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3 ease;
+}
+
+.upcomingButton {
+
+    padding: 8px 8px;
+    background-color: var(--background-color);
+    border-radius: var(--border-radius) 0px 0px var(--border-radius);
+    
+}
+
+.sentButton {
+
+    background-color:var(--background-color);
+    border-radius: 0px var(--border-radius) var(--border-radius) 0px;
+    
+}
+
+.searchContainer {
+    position: relative;
+}
+
+.searchIcon{
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    fill: #888;
+    pointer-events: none;
+}
+
+.searchIcon > image{
+    opacity: 0.6;
+}
+
+.searchInput {
+    height : 1.8rem;
+    font-family: inherit;
+    padding: 8px 16px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    width: 300px;
+    padding-left: 30px;
+    transition: box-shadow 0.5 ease-in-out;
+}
+
+.searchInput:focus {
+    outline: none;
+    font-weight: 400;
+    box-shadow: 0 0 5px rgba(0,0,0, 0.3);
+}
+
+.headerTitle{
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: inherit;
+    color : rgba(0,0,0,0.7);
+    align-items: center;
+}
+
+.listContainer{
+    list-style: none;
+}
+
+.titleCointainer{
+    display:flex;
+    align-items: center;
+    gap:.5rem;
+    margin-right: 1rem;
+}

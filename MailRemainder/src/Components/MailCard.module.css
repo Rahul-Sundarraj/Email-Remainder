@@ -1,0 +1,46 @@
+.mailCard {
+    background-color: #1010220a;
+    border : 1px solid rgb(201, 201, 201);
+    margin: 20px 20px 20px 20px;
+    padding: 5px 10px 10px 10px;
+    border-radius: 10px;
+    font-family: 'Times New Roman', Times, serif;
+    display: flex;
+    align-items: center;
+}
+
+.mailCard .bodyContianer{
+    margin-left: 10px;
+    flex:1;
+}
+
+.body{
+    margin-top: 5px;
+    font-size: .85rem;
+}
+.title{
+    font-size: 1.2rem;
+}
+
+.buttons{
+    display: flex;
+    gap : .7rem;
+    margin-right: .4rem;
+}
+
+.buttons > button{
+    border : none;
+    background-color: transparent;
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 1.1rem;
+    transition: all 0.3 ease;
+}
+
+.buttons > button:hover{
+    background-color: rgba(58, 58, 58, 0.077);
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.3);
+}
+
+
+
