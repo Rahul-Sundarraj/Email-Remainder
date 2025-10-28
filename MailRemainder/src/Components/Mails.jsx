@@ -2,6 +2,8 @@ import React, { useEffect, useState , useMemo} from 'react'
 import style from './Mails.module.css'
 import MailCard from './MailCard'
 
+import img from '../assets/search.svg'
+
 import Icon from './Icon'
 import api from '../api/axios'
 function Mails() {
@@ -84,7 +86,7 @@ function Mails() {
                      onChange={handelOnChange} placeholder="Search mails..." 
                      value ={searchText} />
                     <svg className={style.searchIcon} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <image href='/src/assets/search.svg' width="24" height="24"/>
+                        <image href={img} width="24" height="24"/>
                     </svg>
                 </div>
                 </div>
