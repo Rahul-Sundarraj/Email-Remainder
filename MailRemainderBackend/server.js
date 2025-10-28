@@ -1,5 +1,6 @@
 const express = require('express')
 const mongoose  = require('mongoose')
+const sendgridTransport = require("nodemailer-sendgrid");
 const schedule = require('node-schedule')
 const cors = require('cors')
 const nodemailer = require('nodemailer')
@@ -12,14 +13,11 @@ app.use(express.urlencoded({ extended: true }))
 
 const scheduledMails={}
 
-const transporter = nodemailer.createTransport({
-  host: "smtp.sendgrid.net",
-  port: 587,
-  auth: {
-    user: "apikey",
-    pass: process.env.SENDGRID_API_KEY
-  }
-});
+const transporter = nodemailer.createTransport(
+    sendgridTransport({
+    apiKey: process.env.SENDGRID_API_KEY,
+  })
+);
 
 
 

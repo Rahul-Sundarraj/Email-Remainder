@@ -6,18 +6,20 @@ import axios from 'axios';
 
 function formatDateForInput(date) {
   const d = new Date(date);
-  const local = new Date(d.getTime() - d.getTimezoneOffset() * 60000);
-
-  const formattedDate = local.toISOString().slice(0, 10);
-
-  let hours = local.getHours()-5;
-  let minutes = local.getMinutes()-30;
-
-  const ampm = hours >= 12 ? 'PM' : 'AM';
   
-  hours = hours % 12;
-  hours = hours ? hours : 12; 
+  // Format date to YYYY-MM-DD
+  const formattedDate = d.toISOString().slice(0, 10);
 
+  // Get local time components
+  let hours = d.getHours();
+  let minutes = d.getMinutes();
+  
+  // Convert to 12-hour format
+  const ampm = hours >= 12 ? 'PM' : 'AM';
+  hours = hours % 12;
+  hours = hours ? hours : 12;
+
+  // Format hh:mm AM/PM
   const formattedTime = `${hours}:${minutes.toString().padStart(2, '0')} ${ampm}`;
 
   return [formattedDate, formattedTime];
