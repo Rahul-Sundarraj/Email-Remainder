@@ -33,7 +33,7 @@ function CreateRemainder() {
 
         const addData = async () =>{
             await axios
-            .post('http://localhost:5000/createremainder' ,{
+            .post('https://email-remainder.onrender.com/createremainder' ,{
                 ...formData,
                 time : new Date(formData.time)
             }).then(res => {console.log(res)})

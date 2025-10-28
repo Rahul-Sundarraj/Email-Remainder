@@ -13,13 +13,14 @@ app.use(express.urlencoded({ extended: true }))
 const scheduledMails={}
 
 const transporter = nodemailer.createTransport({
-
-  service: "SendGrid",
+  host: "smtp.sendgrid.net",
+  port: 587,
   auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
-        }
+    user: "apikey",
+    pass: process.env.SENDGRID_API_KEY
+  }
 });
+
 
 
 transporter.verify((err, success) => {

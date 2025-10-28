@@ -10,8 +10,8 @@ function formatDateForInput(date) {
 
   const formattedDate = local.toISOString().slice(0, 10);
 
-  let hours = local.getHours();
-  let minutes = local.getMinutes();
+  let hours = local.getHours()-5;
+  let minutes = local.getMinutes()-30;
 
   const ampm = hours >= 12 ? 'PM' : 'AM';
   
@@ -36,7 +36,7 @@ function MailCard({data}) {
 
       console.log(data)
       await axios
-        .delete(`http://localhost:5000/deleteremainder/${data._id}`)
+        .delete(`https://email-remainder.onrender.com/deleteremainder/${data._id}`)
         .then(res => {console.log(res)})
         .catch(e => {console.log(e)})
     }

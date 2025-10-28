@@ -32,7 +32,7 @@ function Mails() {
 
         const getSentMails = async ()=>{
             await axios
-                .post('http://localhost:5000/mails' , {
+                .post('https://email-remainder.onrender.com/mails' , {
                     from : 'fftgosr@gmail.com',
                     isSent : true
                 })
@@ -44,7 +44,7 @@ function Mails() {
 
         const getUpcomingMails = async ()=>{
             await axios
-                .post('http://localhost:5000/mails' , {
+                .post('https://email-remainder.onrender.com/mails' , {
                     from : 'fftgosr@gmail.com',
                     isSent:false
                 })
