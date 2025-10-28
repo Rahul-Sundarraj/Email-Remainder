@@ -17,7 +17,7 @@ function Home() {
         </div>
 
         <div className={style.btnContainer}>
-          <a className={style.btn} href='/createremainder'>Create Remainder</a>
+          <Link  className={style.btn} href='/createremainder'>Create Remainder</Link >
 
         </div>
         <Mails />
