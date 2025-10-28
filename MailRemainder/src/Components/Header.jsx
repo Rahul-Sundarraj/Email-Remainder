@@ -10,7 +10,6 @@ function Header() {
             </svg>
             <h1 className={style.title}>Mail Remainder</h1>
         </div>
-        <button className={style.button}>Login</button>
     </header>
   )
 }

@@ -40,7 +40,7 @@ function EditRemainder() {
 
         const editData = async () =>{
             await axios
-            .post('http://localhost:5000/editremainder' ,{
+            .post('https://email-remainder.onrender.com/editremainder' ,{
                 ...formData,
                 time : new Date(formData.time)
             }).then(res => {console.log(res)})
