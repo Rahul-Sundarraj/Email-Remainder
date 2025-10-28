@@ -31,7 +31,7 @@
 | Database | MongoDB Atlas |
 | Email Service | Nodemailer / SendGrid |
 | Scheduler | Node Schedule |
-| Deployment | Render (Backend), Vercel (Frontend) |
+| Deployment | Render (Backend , Frontend) |
 
 ---
 
