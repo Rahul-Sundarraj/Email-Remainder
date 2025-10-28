@@ -19,7 +19,7 @@ function Home() {
         </div>
 
         <div className={style.btnContainer}>
-          <Link  className={style.btn} href='/createremainder'>Create Remainder</Link >
+          <Link  className={style.btn} to='/createremainder'>Create Remainder</Link >
 
         </div>
         <Mails />
