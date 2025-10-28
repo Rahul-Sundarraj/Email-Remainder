@@ -3,8 +3,7 @@ import style from './Mails.module.css'
 import MailCard from './MailCard'
 
 import Icon from './Icon'
-import axios from 'axios'
-
+import api from '../api/axios'
 function Mails() {
 
 
@@ -31,8 +30,8 @@ function Mails() {
     useEffect(()=>{
 
         const getSentMails = async ()=>{
-            await axios
-                .post('https://email-remainder.onrender.com/mails' , {
+            await api
+                .post('/mails' , {
                     from : 'fftgosr@gmail.com',
                     isSent : true
                 })
@@ -43,8 +42,8 @@ function Mails() {
         getSentMails()
 
         const getUpcomingMails = async ()=>{
-            await axios
-                .post('https://email-remainder.onrender.com/mails' , {
+            await api
+                .post('/mails' , {
                     from : 'fftgosr@gmail.com',
                     isSent:false
                 })

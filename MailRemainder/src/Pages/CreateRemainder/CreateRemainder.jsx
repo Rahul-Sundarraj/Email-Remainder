@@ -2,8 +2,7 @@ import React , {useState} from 'react'
 import style from './CreateRemainder.module.css'
 import Icon from '../../Components/Icon'
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-
+import api from '../../api/axios'
 
 
 function CreateRemainder() {
@@ -32,8 +31,8 @@ function CreateRemainder() {
         console.log(formData)
 
         const addData = async () =>{
-            await axios
-            .post('https://email-remainder.onrender.com/createremainder' ,{
+            await api
+            .post('/createremainder' ,{
                 ...formData,
                 time : new Date(formData.time)
             }).then(res => {console.log(res)})

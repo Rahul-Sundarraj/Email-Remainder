@@ -2,7 +2,7 @@ import React from 'react'
 import style from './MailCard.module.css'
 import Icon from './Icon'
 import { useNavigate } from 'react-router-dom'
-import axios from 'axios';
+import api from '../api/axios'
 
 function formatDateForInput(date) {
   const d = new Date(date);
@@ -37,8 +37,8 @@ function MailCard({data}) {
     const handelDelete = async()=>{
 
       console.log(data)
-      await axios
-        .delete(`https://email-remainder.onrender.com/deleteremainder/${data._id}`)
+      await api
+        .delete(`/deleteremainder/${data._id}`)
         .then(res => {console.log(res)})
         .catch(e => {console.log(e)})
     }

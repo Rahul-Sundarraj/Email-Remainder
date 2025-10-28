@@ -20,12 +20,6 @@ const transporter = nodemailer.createTransport(
 );
 
 
-
-transporter.verify((err, success) => {
-  if(err) console.log("SMTP error:", err);
-  else console.log("SMTP ready");
-});
-
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.error(err));
@@ -71,29 +65,30 @@ app.post('/mails', async (req, res) => {
 })
 
 
-const ScheduleMail = (id , from , to , subject , message , time)=>{
-        const mailOptions = { from, to,subject,
-            text : message
-        }
-        const job = schedule.scheduleJob(time ,  ()=>{
-            transporter.sendMail(mailOptions, async(error, info) => {
-                if (error) {
-                    console.log(error); 
-                    } else {
-                    console.log('Email sent: ' + info.response);
+const ScheduleMail = (id, from, to, subject, message, time) => {
 
-                    const updatedRemainder = await Mails.findByIdAndUpdate(id ,
-                        {isSent : true} ,
-                        {new : true}
-                    )
+  const job = schedule.scheduleJob(time, async () => {
+     (async () => {
+    try {
+       const info = await transporter.sendMail({
+      from: process.env.SENDER_EMAIL,
+      to: to, 
+      subject: subject,
+      text: message,
+    });
+      console.log('✅ Email sent:', info.response);
 
-                    delete scheduledMails[id]
-                    }
-                })
-        })
+      await Mails.findByIdAndUpdate(id, { isSent: true }, { new: true });
+      delete scheduledMails[id];
+    } catch (err) {
+        console.error("❌ SendGrid error:", err.response?.body || err);
+    }
+    })();
+  });
 
-    scheduledMails[id]=job
-}
+  scheduledMails[id] = job;
+};
+
 
 app.post('/createremainder' , async (req , res) =>{
 

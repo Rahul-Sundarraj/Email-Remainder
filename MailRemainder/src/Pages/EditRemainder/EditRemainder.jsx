@@ -2,8 +2,7 @@ import React , {useState} from 'react'
 import style from './EditRemainder.module.css'
 import Icon from '../../Components/Icon'
 import { useNavigate ,useLocation } from 'react-router-dom';
-import axios from 'axios';
-
+import api from '../../api/axios'
 function formatDateForInput(date) {
   const d = new Date(date);
   const local = new Date(d.getTime() - d.getTimezoneOffset() * 60000);
@@ -39,8 +38,8 @@ function EditRemainder() {
         console.log(formData)
 
         const editData = async () =>{
-            await axios
-            .post('https://email-remainder.onrender.com/editremainder' ,{
+            await api
+            .post('/editremainder' ,{
                 ...formData,
                 time : new Date(formData.time)
             }).then(res => {console.log(res)})
